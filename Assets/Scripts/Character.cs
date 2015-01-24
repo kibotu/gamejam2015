@@ -8,12 +8,15 @@ public class Character : MonoBehaviour
 
 	private bool facingRight = true;
 
-    private AttackController attackCtrl;
+    public AttackController attackCtrl;
 
     void Start()
     {
-        if (input != null)
+        if (input != null){
             input.OnKeydown += OnKeydown;
+            input.Attack += Attack;
+        }
+            
     }
 
     public static float DiagonalSpeed = Mathf.Sqrt(2);
@@ -81,9 +84,14 @@ public class Character : MonoBehaviour
 		transform.localScale = scale;
 	}
 
+    void Attack()
+    {
+        attackCtrl.Attack();
+    }
+
     public void AttackEnemy(Character enemy)
     {
-        enemy.Defend (attackCtrl);
+        enemy.Defend(attackCtrl);
     }
 
     void Defend(AttackController attackCtrl)

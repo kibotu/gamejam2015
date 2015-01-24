@@ -6,6 +6,8 @@ public class InputController : MonoBehaviour
 {
     public event Action<Direction> OnKeydown;
 
+    public event Action Attack;
+
     void Update()
     {
         Keyboard();
@@ -14,9 +16,11 @@ public class InputController : MonoBehaviour
 
     public void Keyboard()
     {
-//        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
-    
-//        if(Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
+        {
+            Attack();
+        }
+ //       if(Input.GetMouseButtonDown(1))
 //        if(Input.GetMouseButtonDown(2))
 
        
