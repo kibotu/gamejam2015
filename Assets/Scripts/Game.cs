@@ -12,6 +12,9 @@ namespace watdowedonow
 
         public NetworkController network;
 
+		public float SECONDS_LEFT;
+		public Text TimeLeftText;
+
         void Awake()
         {
             CurrentlyConnectedPlayer = new Dictionary<int, Character>();
@@ -54,7 +57,15 @@ namespace watdowedonow
 
         void Update()
         {
+			SECONDS_LEFT -= Time.deltaTime;
 
+			double secondsLeft = Math.Round (SECONDS_LEFT);
+			string timeLeft = TimeSpan.FromSeconds (secondsLeft).ToString();
+			TimeLeftText.text = timeLeft.Substring(4, timeLeft.Length - 4);
+
+			if (SECONDS_LEFT <= 0.3f) {
+				// TODO: next level or result screen.
+			}
         }
     }
 }

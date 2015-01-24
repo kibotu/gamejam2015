@@ -49,7 +49,7 @@ GameObject:
   - 61: {fileID: 6155018}
   - 50: {fileID: 5055018}
   m_Layer: 0
-  m_Name: Character
+  m_Name: OLD_Character
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
