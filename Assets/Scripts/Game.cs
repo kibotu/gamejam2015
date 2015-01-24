@@ -2,14 +2,20 @@
 using System.Collections.Generic;
 using System.Security.Policy;
 using UnityEngine;
+using whatdowedonow;
 
 namespace watdowedonow
 {
     public class Game : MonoBehaviour
     {
-        public Dictionary<int, Character> CurrentlyConnectedPlayer;
+        public static volatile Dictionary<int, Character> CurrentlyConnectedPlayer;
 
         public NetworkController network;
+
+        void Awake()
+        {
+            CurrentlyConnectedPlayer = new Dictionary<int, Character>();
+        }
 
         void Start()
         {
@@ -18,7 +24,8 @@ namespace watdowedonow
 
         void OnBytesReceived(int id, string name, byte action)
         {
-            MovePlayer(GetPlayer(id, name), action);
+            // receive async network call
+            ExecuteOnMainThread.Schedule.Enqueue(() => MovePlayer(GetPlayer(id, name), action));
         }
 
         private void MovePlayer(Character player, byte action)
@@ -27,16 +34,18 @@ namespace watdowedonow
             player.OnKeydown((Direction)Convert.ToInt32(action));
         }
 
-        private Character GetPlayer(int id, string s)
+        private Character GetPlayer(int id, string playerName)
         {
-            return CurrentlyConnectedPlayer.ContainsKey(id) ? CurrentlyConnectedPlayer[id] : SpawnIfNotExists(id, name);
+            return CurrentlyConnectedPlayer.ContainsKey(id) ? CurrentlyConnectedPlayer[id] : SpawnIfNotExists(id, playerName);
         }
 
-        private Character SpawnIfNotExists(int id, string name)
+        private Character SpawnIfNotExists(int id, string playerName)
         {
-            Debug.Log("spawn " + id + " name " + name);
+            Debug.Log("spawn " + id + " name " + playerName);
             var go = Prefabs.Shared.Character.Instantiate();
+            go.name = playerName;
             var character = go.GetComponent<Character>();
+            character.id = id;
             CurrentlyConnectedPlayer[id] = character;
             return character;
         }
