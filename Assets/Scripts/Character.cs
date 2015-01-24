@@ -7,6 +7,8 @@ public class Character : MonoBehaviour
     public InputController input;
     public float speed;
 
+	private bool facingRight = true;
+
     void Start()
     {
         input.OnKeydown += OnKeydown;
@@ -41,16 +43,22 @@ public class Character : MonoBehaviour
 
     void Left()
     {
+		if(facingRight)
+			Flip();
         transform.Translate(-speed * Time.deltaTime, 0, 0);
     }
 
     void Right()
     {
+		if(!facingRight)
+			Flip();
         transform.Translate(speed * Time.deltaTime, 0, 0);
     }
-
-    void Update()
-    {
-
-    }
+	void Flip()
+	{
+		facingRight = !facingRight;
+		Vector2 scale = transform.localScale;
+		scale.x *= -1;
+		transform.localScale = scale;
+	}
 }
