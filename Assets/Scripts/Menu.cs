@@ -8,6 +8,7 @@ public class Menu : MonoBehaviour
     public Image LogoImage;
     public float Delay;
     public float FadeTime;
+    public Button StartButton;
 
 	void Start ()
 	{
@@ -33,10 +34,19 @@ public class Menu : MonoBehaviour
             var c2 = endImage.color;
             c2.a = Mathf.Lerp(0, 1, Easing.Ease(Easing.Type.SinusoidalEaseIn, time));
             endImage.color = c2;
+
+            var c3 = StartButton.image.color;
+            c3.a = Mathf.Lerp(0, .5f, Easing.Ease(Easing.Type.SinusoidalEaseIn, time));
+            StartButton.image.color = c3;
         }
     }
 
     void Update () {
 	
 	}
+
+    public void LoadLevel(string levelId)
+    {
+        Application.LoadLevel(levelId);
+    }
 }
