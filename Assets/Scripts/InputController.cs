@@ -4,11 +4,10 @@ using System;
 
 public class InputController : MonoBehaviour
 {
-
-    public event Action Player1Down;
-    public event Action Player1Up;
-    public event Action Player1Left;
-    public event Action Player1Right;
+    public event Action Keyboard1Down;
+    public event Action Keyboard1Up;
+    public event Action Keyboard1Left;
+    public event Action Keyboard1Right;
 
     void Update()
     {
@@ -20,22 +19,22 @@ public class InputController : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.W))
         {
-            Player1Up();
+            Keyboard1Up();
             Debug.Log("W Pressed.");
         }
         if (Input.GetKey(KeyCode.S))
         {
-            Player1Down();
+            Keyboard1Down();
             Debug.Log("S Pressed.");
         }
         if (Input.GetKey(KeyCode.A))
         {
-            Player1Left();
+            Keyboard1Left();
             Debug.Log("A Pressed.");
         }
         if (Input.GetKey(KeyCode.D))
         {
-            Player1Right();
+            Keyboard1Right();
             Debug.Log("D Pressed.");
         }
     }

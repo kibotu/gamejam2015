@@ -1,0 +1,42 @@
+﻿using UnityEngine;
+using System.Collections;
+using UnityEngine.UI;
+
+public class Menu : MonoBehaviour
+{
+    public Image TeamImage;
+    public Image LogoImage;
+    public float Delay;
+    public float FadeTime;
+
+	void Start ()
+	{
+	    StartCoroutine(CrossFade(TeamImage, LogoImage, FadeTime, Delay));
+	}
+
+    private IEnumerator CrossFade(Image startImage, Image endImage, float fadeFor, float delayFor)
+    {
+        yield return new WaitForSeconds(delayFor);
+
+        float time = 0;
+        while (time <= fadeFor)
+        {
+            yield return new WaitForEndOfFrame();
+            time += Time.deltaTime;
+
+            // fade out
+            var c1 = startImage.color;
+            c1.a = Mathf.Lerp(1, 0, Easing.Ease(Easing.Type.SinusoidalEaseIn, time));
+            startImage.color = c1;
+
+            // fade in
+            var c2 = endImage.color;
+            c2.a = Mathf.Lerp(0, 1, Easing.Ease(Easing.Type.SinusoidalEaseIn, time));
+            endImage.color = c2;
+        }
+    }
+
+    void Update () {
+	
+	}
+}

@@ -9,10 +9,10 @@ public class Character : MonoBehaviour
 
     void Start()
     {
-        input.Player1Up += Up;
-        input.Player1Down += Down;
-        input.Player1Left += Left;
-        input.Player1Right += Right;
+        input.Keyboard1Up += Up;
+        input.Keyboard1Down += Down;
+        input.Keyboard1Left += Left;
+        input.Keyboard1Right += Right;
     }
 
     void Up()
