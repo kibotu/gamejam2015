@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 public class CameraController : MonoBehaviour {
 
+    public bool idle;
+    public bool shake;
         
 
     public float ShakeIntensity = 0.005f;    
@@ -14,9 +16,10 @@ public class CameraController : MonoBehaviour {
     public PathControll path;
     private IEnumerator<PathNode> currentPathNode;
     public float speed = 1;
-    public float maxDistanceToPoint = .1f;
+
     private float t = 0f;
     private Vector3 lastPos;
+    public bool test = false;
 
     void Start()
         {
@@ -35,34 +38,50 @@ public class CameraController : MonoBehaviour {
 
         void Update () 
         {
-            transform.position = Vector3.Lerp(lastPos, currentPathNode.Current.transform.position, t);
-            
-            t += Time.deltaTime * speed;
-            if (t >= 1.0f) {
-                t = 0.0f;
-                lastPos = currentPathNode.Current.transform.position;
-                currentPathNode.MoveNext();
+            if(test){
+                test = false;
+                DoShake();
             }
-            
-            /*if(time > 0)
-            {
-                //transform.position = pos + Random.insideUnitSphere * ShakeIntensity;
-                //transform.rotation = new Quaternion(originRot.x + Random.Range(-ShakeIntensity, ShakeIntensity)*.2f,
-                 //                               originRot.y + Random.Range(-ShakeIntensity, ShakeIntensity)*.2f,
-                  //                              originRot.z + Random.Range(-ShakeIntensity, ShakeIntensity)*.2f,
-                    //                            originRot.w + Random.Range(-ShakeIntensity, ShakeIntensity)*.2f);
-                time--;                
-            }
-            else 
-            {
-                //transform.position = pos;
-                //transform.rotation = originRot;
-            }*/
-        }
 
-        public void DoShake()
-        {
-            time = ShackTime;
+
+            if(idle){
+                transform.position = Vector3.Lerp(lastPos, currentPathNode.Current.transform.position, t);
+                
+                t += Time.deltaTime * speed;
+                if (t >= 1.0f) {
+                    t = 0.0f;
+                    lastPos = currentPathNode.Current.transform.position;
+                    currentPathNode.MoveNext();
+                }
+            }else{
+                transform.position = Vector3.Lerp(transform.position, pos, Time.deltaTime * speed);
+            }
+
+            if(shake){
+                if(time > 0)
+                {
+                    transform.position = pos + Random.insideUnitSphere * ShakeIntensity;
+                    transform.rotation = new Quaternion(originRot.x + Random.Range(-ShakeIntensity, ShakeIntensity)*.2f,
+                                                   originRot.y + Random.Range(-ShakeIntensity, ShakeIntensity)*.2f,
+                                                  originRot.z + Random.Range(-ShakeIntensity, ShakeIntensity)*.2f,
+                                                originRot.w + Random.Range(-ShakeIntensity, ShakeIntensity)*.2f);
+                    time--;                
+                }
+                else 
+                {
+                    transform.position = pos;
+                    transform.rotation = originRot;
+                    shake = false;
+                }
+            }
+
+    }
+    
+    public void DoShake()
+    {
+        time = ShackTime;
+        shake = true;
+
         }    
         
         
