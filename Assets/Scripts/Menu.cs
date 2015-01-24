@@ -42,10 +42,6 @@ public class Menu : MonoBehaviour
         }
     }
 
-    void Update () {
-	
-	}
-
     public void LoadLevel(string levelId)
     {
         StartCoroutine(WaitForAudioSource(Sounds.Shared.StartButton.Instantiate().GetComponent<AudioSource>(), ()=> Application.LoadLevel(levelId)));

@@ -20,6 +20,7 @@ namespace watdowedonow
         void Start()
         {
             network.OnBytesReceived += OnBytesReceived;
+            Sounds.Shared.KickSomeAssBG.Instantiate().GetComponent<AudioSource>().Play();
         }
 
         void OnBytesReceived(int id, string name, byte action)
