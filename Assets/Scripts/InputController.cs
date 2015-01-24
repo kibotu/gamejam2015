@@ -4,11 +4,7 @@ using System;
 
 public class InputController : MonoBehaviour
 {
-
-    public event Action Player1Down;
-    public event Action Player1Up;
-    public event Action Player1Left;
-    public event Action Player1Right;
+    public event Action<Direction> OnKeydown;
 
     void Update()
     {
@@ -16,29 +12,80 @@ public class InputController : MonoBehaviour
         XBoxController();
     }
 
-    void Keyboard()
+    public void Keyboard()
     {
-        if (Input.GetKey(KeyCode.W))
+//        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
+    
+//        if(Input.GetMouseButtonDown(1))
+//        if(Input.GetMouseButtonDown(2))
+
+       
+        #region catch inputs
+        // NORTH_EAST
+        if (KeyboardUp() && KeyboardRight())
         {
-            Player1Up();
-            Debug.Log("W Pressed.");
+            OnKeydown(Direction.NORTH_EAST);
         }
-        if (Input.GetKey(KeyCode.S))
+        // NORTH_WEST
+        else if (KeyboardUp() && KeyboardLeft())
         {
-            Player1Down();
-            Debug.Log("S Pressed.");
+            OnKeydown(Direction.NORTH_WEST);
         }
-        if (Input.GetKey(KeyCode.A))
+        // SOUTH_EAST
+        else if (KeyboardDown() && KeyboardRight())
         {
-            Player1Left();
-            Debug.Log("A Pressed.");
+            OnKeydown(Direction.SOUTH_EAST);
         }
-        if (Input.GetKey(KeyCode.D))
+        // SOUTH_WEST
+        else if (KeyboardDown() && KeyboardLeft())
         {
-            Player1Right();
-            Debug.Log("D Pressed.");
+            OnKeydown(Direction.SOUTH_WEST);
         }
+        // NORTH
+        else if (KeyboardUp())
+        {
+            OnKeydown(Direction.NORTH);
+        }
+        // EAST
+        else if (KeyboardRight())
+        {
+            OnKeydown(Direction.EAST);
+        }
+        // WEST
+        else if (KeyboardLeft())
+        {
+            OnKeydown(Direction.WEST);
+        }
+        // SOUTH
+        else if (KeyboardDown())
+        {
+            OnKeydown(Direction.SOUTH);
+        }
+        // MIDDLE
+        else {
+            // idle
+        }
+        #endregion
     }
+
+    #region player inputs
+    public bool KeyboardUp()
+    {
+        return Input.GetKey("up") || Input.GetKey(KeyCode.W);
+    }
+    public bool KeyboardLeft()
+    {
+        return Input.GetKey("left") || Input.GetKey(KeyCode.A);
+    }
+    public bool KeyboardDown()
+    {
+        return Input.GetKey("down") || Input.GetKey(KeyCode.S);
+    }
+    public bool KeyboardRight()
+    {
+        return Input.GetKey("right") || Input.GetKey(KeyCode.D);
+    }
+    #endregion
 
     // xbox 360 joystick http://wiki.unity3d.com/index.php?title=Xbox360Controller
     /// <summary>

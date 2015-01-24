@@ -1,0 +1,2 @@
+image size 512x512
+character pivot (center on ground) 256x384
