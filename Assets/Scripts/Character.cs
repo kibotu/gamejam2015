@@ -6,6 +6,8 @@ public class Character : MonoBehaviour
     public float speed;
     public int id;
 
+	public GameObject CharacterSprite;
+
 	private bool facingRight = true;
 
     public AttackController attackCtrl;
@@ -16,7 +18,6 @@ public class Character : MonoBehaviour
             input.OnKeydown += OnKeydown;
             input.Attack += Attack;
         }
-            
     }
 
     public static float DiagonalSpeed = Mathf.Sqrt(2);
@@ -79,9 +80,9 @@ public class Character : MonoBehaviour
 	void Flip()
 	{
 		facingRight = !facingRight;
-		Vector2 scale = transform.localScale;
+		Vector2 scale = CharacterSprite.transform.localScale;
 		scale.x *= -1;
-		transform.localScale = scale;
+		CharacterSprite.transform.localScale = scale;
 	}
 
     void Attack()
