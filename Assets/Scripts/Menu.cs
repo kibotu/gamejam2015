@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
@@ -47,6 +48,14 @@ public class Menu : MonoBehaviour
 
     public void LoadLevel(string levelId)
     {
-        Application.LoadLevel(levelId);
+        StartCoroutine(WaitForAudioSource(Sounds.Shared.StartButton.Instantiate().GetComponent<AudioSource>(), ()=> Application.LoadLevel(levelId)));
+    }
+
+    public IEnumerator WaitForAudioSource(AudioSource clip, Action action)
+    {
+        while (clip.isPlaying)
+            yield return new WaitForEndOfFrame();
+
+        action();
     }
 }
