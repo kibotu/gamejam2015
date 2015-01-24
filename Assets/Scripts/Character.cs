@@ -20,40 +20,57 @@ public class Character : MonoBehaviour
     {
         switch (dir)
         {
-            case global::Direction.NORTH: Up(); break;
-            case global::Direction.NORTH_EAST: transform.Translate(speed * Time.deltaTime / DiagonalSpeed, speed * Time.deltaTime / DiagonalSpeed, 0); break;
-            case global::Direction.EAST: Right(); break;
-            case global::Direction.SOUTH_EAST: transform.Translate(speed * Time.deltaTime / DiagonalSpeed, -speed * Time.deltaTime / DiagonalSpeed, 0); break;
-            case global::Direction.SOUTH: Down(); break;
-            case global::Direction.SOUTH_WEST: transform.Translate(-speed * Time.deltaTime / DiagonalSpeed, -speed * Time.deltaTime / DiagonalSpeed, 0); break;
-            case global::Direction.WEST: Left(); break;
-            case global::Direction.NORTH_WEST: transform.Translate(-speed * Time.deltaTime / DiagonalSpeed, speed * Time.deltaTime / DiagonalSpeed, 0); break;
+            case global::Direction.NORTH: North(); break;
+			case global::Direction.NORTH_EAST: NorthEast();	break;
+            case global::Direction.EAST: West(); break;
+			case global::Direction.SOUTH_EAST: SouthEast();	break;
+            case global::Direction.SOUTH: South(); break;
+			case global::Direction.SOUTH_WEST: SouthWest(); break; 
+			case global::Direction.WEST: East(); break;
+			case global::Direction.NORTH_WEST: NorthWest();break;
         }
     }
 
-    void Up()
+    void North()
     {
         transform.Translate(0, speed * Time.deltaTime, 0);
     }
-
-    void Down()
+	void NorthEast(){
+		if(!facingRight)
+			Flip();
+		transform.Translate(speed * Time.deltaTime / DiagonalSpeed, speed * Time.deltaTime / DiagonalSpeed, 0); 
+	}
+	void East()
+	{
+		if(facingRight)
+			Flip();
+		transform.Translate(-speed * Time.deltaTime, 0, 0);
+	}
+	void SouthEast(){
+		if(!facingRight)
+			Flip();
+		transform.Translate(speed * Time.deltaTime / DiagonalSpeed, -speed * Time.deltaTime / DiagonalSpeed, 0); 
+	}
+    void South()
     {
         transform.Translate(0, -speed * Time.deltaTime, 0);
     }
-
-    void Left()
-    {
+	void SouthWest(){
 		if(facingRight)
 			Flip();
-        transform.Translate(-speed * Time.deltaTime, 0, 0);
-    }
-
-    void Right()
+		transform.Translate(-speed * Time.deltaTime / DiagonalSpeed, -speed * Time.deltaTime / DiagonalSpeed, 0);
+	}
+    void West()
     {
 		if(!facingRight)
 			Flip();
         transform.Translate(speed * Time.deltaTime, 0, 0);
     }
+	void NorthWest(){
+		if(facingRight)
+			Flip();
+		transform.Translate(-speed * Time.deltaTime / DiagonalSpeed, speed * Time.deltaTime / DiagonalSpeed, 0);
+	}
 	void Flip()
 	{
 		facingRight = !facingRight;
