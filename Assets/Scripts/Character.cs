@@ -8,6 +8,8 @@ public class Character : MonoBehaviour
 
 	private bool facingRight = true;
 
+    private AttackController attackCtrl;
+
     void Start()
     {
         if (input != null)
@@ -78,4 +80,14 @@ public class Character : MonoBehaviour
 		scale.x *= -1;
 		transform.localScale = scale;
 	}
+
+    public void AttackEnemy(Character enemy)
+    {
+        enemy.Defend (attackCtrl);
+    }
+
+    void Defend(AttackController attackCtrl)
+    {
+        GetComponent<HealthController>().ApplyDamage(attackCtrl.Damage);
+    }
 }
