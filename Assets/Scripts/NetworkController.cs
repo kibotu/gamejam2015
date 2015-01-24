@@ -11,6 +11,7 @@ public class NetworkController : MonoBehaviour {
 	private Socket udpSock;
 	private byte[] buffer;
 
+    public event Action<int, string, byte> OnBytesReceived; 
 
 	void Starter(object target){
 		//Setup the socket and message buffer
@@ -44,22 +45,17 @@ public class NetworkController : MonoBehaviour {
 			byte playerAction = localMsg[7];
 			Debug.Log(String.Format("Received playerId={0}, name={1}, action={2} ({3} bytes) from {4}:{5}",
 			                        playerId, playerName, playerAction, msgLen, ((IPEndPoint)clientEP).Address, ((IPEndPoint)clientEP).Port));
-			//Do other, more interesting, things with the received message.
+
+            OnBytesReceived(playerId, playerName, playerAction);
+
+		    //Do other, more interesting, things with the received message.
 		} catch (ObjectDisposedException){
 			//expected termination exception on a closed socket.
 			// ...I'm open to suggestions on a better way of doing this.
 		}
 	}
-
-
 	
-	// Use this for initialization
 	void Start () {
 		ThreadPool.QueueUserWorkItem (Starter);
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
 	}
 }

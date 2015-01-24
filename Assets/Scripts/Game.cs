@@ -1,17 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Security.Policy;
 using UnityEngine;
 
 namespace watdowedonow
 {
     public class Game : MonoBehaviour
     {
-        public NetworkHandler Network;
-        public Dictionary<int, NetworkPlayer> CurrentlyConnectedPlayer;
+        public Dictionary<int, Character> CurrentlyConnectedPlayer;
+
+        public NetworkController network;
 
         void Start()
         {
-            Network.OnBytesReceived += OnBytesReceived;
+            network.OnBytesReceived += OnBytesReceived;
         }
 
         void OnBytesReceived(int id, string name, byte action)
@@ -19,22 +21,24 @@ namespace watdowedonow
             MovePlayer(GetPlayer(id, name), action);
         }
 
-        private void MovePlayer(NetworkPlayer player, byte action)
+        private void MovePlayer(Character player, byte action)
         {
             Debug.Log("move player: " + (Direction) Convert.ToInt32(action));
-            player.character.OnKeydown((Direction) Convert.ToInt32(action));
+            player.OnKeydown((Direction)Convert.ToInt32(action));
         }
-        
-        private NetworkPlayer GetPlayer(int id, string s)
+
+        private Character GetPlayer(int id, string s)
         {
             return CurrentlyConnectedPlayer.ContainsKey(id) ? CurrentlyConnectedPlayer[id] : SpawnIfNotExists(id, name);
         }
 
-        private NetworkPlayer SpawnIfNotExists(int id, string name)
+        private Character SpawnIfNotExists(int id, string name)
         {
-            var character = Prefabs.Shared.Character.Instantiate();
             Debug.Log("spawn " + id + " name " + name);
-            return null;
+            var go = Prefabs.Shared.Character.Instantiate();
+            var character = go.GetComponent<Character>();
+            CurrentlyConnectedPlayer[id] = character;
+            return character;
         }
 
         void Update()

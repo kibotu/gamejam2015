@@ -4,12 +4,14 @@ public class Character : MonoBehaviour
 {
     public InputController input;
     public float speed;
+    public int id;
 
 	private bool facingRight = true;
 
     void Start()
     {
-        input.OnKeydown += OnKeydown;
+        if (input != null)
+            input.OnKeydown += OnKeydown;
     }
 
     public static float DiagonalSpeed = Mathf.Sqrt(2);
