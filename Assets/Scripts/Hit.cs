@@ -1,0 +1,27 @@
+﻿using UnityEngine;
+using System.Collections;
+
+public class Hit : MonoBehaviour {
+    
+    public AudioSource touche;
+    public AudioSource hitflesh;
+    
+    void OnCollisionEnter2D(Collision2D coll) {
+        
+        foreach (var col in coll.contacts) {
+            
+
+            
+            // player hits enemy
+            if (coll.gameObject.tag.Equals ("Player")) {
+                Debug.Log ("hits " + col.collider.gameObject.name);
+                var enemy = coll.transform.gameObject.GetComponent<Character>();
+                var player = gameObject.transform.parent.parent.gameObject.GetComponent<Character>();
+                
+                if(player != null) 
+                    player.AttackEnemy(enemy);
+            }
+
+        }
+    }
+}
