@@ -1,9 +1,7 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class Character : MonoBehaviour
 {
-
     public InputController input;
     public float speed;
 
@@ -16,18 +14,18 @@ public class Character : MonoBehaviour
 
     public static float DiagonalSpeed = Mathf.Sqrt(2);
 
-    private void OnKeydown(Direction dir)
+    public void OnKeydown(Direction dir)
     {
         switch (dir)
         {
-            case global::Direction.NORTH: North(); break;
-			case global::Direction.NORTH_EAST: NorthEast();	break;
-            case global::Direction.EAST: West(); break;
-			case global::Direction.SOUTH_EAST: SouthEast();	break;
-            case global::Direction.SOUTH: South(); break;
-			case global::Direction.SOUTH_WEST: SouthWest(); break; 
-			case global::Direction.WEST: East(); break;
-			case global::Direction.NORTH_WEST: NorthWest();break;
+            case Direction.NORTH: North(); break;
+			case Direction.NORTH_EAST: NorthEast();	break;
+            case Direction.EAST: West(); break;
+			case Direction.SOUTH_EAST: SouthEast();	break;
+            case Direction.SOUTH: South(); break;
+			case Direction.SOUTH_WEST: SouthWest(); break; 
+			case Direction.WEST: East(); break;
+			case Direction.NORTH_WEST: NorthWest();break;
         }
     }
 

@@ -1,6 +1,7 @@
 ﻿using System;
+using UnityEngine;
 
-public class NetworkHandler
+public class NetworkHandler : MonoBehaviour
 {
-    public event Action<int, string, byte> OnConnect; 
+    public event Action<int, string, byte> OnBytesReceived; 
 }
