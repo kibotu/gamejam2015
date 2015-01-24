@@ -87,7 +87,7 @@ public class Character : MonoBehaviour
 
     void Attack()
     {
-        attackCtrl.Attack();
+        if(attackCtrl != null) attackCtrl.Attack();
     }
 
     public void AttackEnemy(Character enemy)
