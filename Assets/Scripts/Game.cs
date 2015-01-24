@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Security.Policy;
 using UnityEngine;
+using UnityEngine.UI;
 using whatdowedonow;
 
 namespace watdowedonow
@@ -44,6 +45,7 @@ namespace watdowedonow
         {
             Debug.Log("spawn " + id + " name " + playerName);
             var go = Prefabs.Shared.Character.Instantiate();
+			go.GetComponentInChildren<Text> ().text = playerName;
             go.name = playerName;
             var character = go.GetComponent<Character>();
             character.id = id;
