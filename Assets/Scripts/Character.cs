@@ -115,10 +115,14 @@ public class Character : MonoBehaviour
     {
         animator.SetInteger("AnimState",2);
         if(attackCtrl != null) attackCtrl.Attack();
+		var attackSound = Sounds.Shared.AttackMiss.Instantiate().GetComponent<AudioSource>();
+		attackSound.Play();		
     }
 
     public void AttackEnemy(Character enemy)
     {
+		var attackSound = Sounds.Shared.AttackHit.Instantiate().GetComponent<AudioSource>();
+		attackSound.Play();		
         if (enemy.Defend(attackCtrl))
             playerStats.Kills++;
     }

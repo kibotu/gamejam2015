@@ -70,6 +70,8 @@ namespace watdowedonow
                 if(showResult){
                     showResult = false;
                     gameMode.GiveWinner();
+					var winSound = Sounds.Shared.Win.Instantiate().GetComponent<AudioSource>();
+					winSound.Play();
                 }
 
 			}
