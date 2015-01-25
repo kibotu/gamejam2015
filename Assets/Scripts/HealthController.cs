@@ -7,6 +7,7 @@ public class HealthController : MonoBehaviour {
 	public float MaxHealth = 100;
 	public Animation dieAnimation;
     private Color startColor;
+    public Animator animator;
 
 	public void start(){
 
@@ -15,7 +16,7 @@ public class HealthController : MonoBehaviour {
 
 	}
 
-	public void ApplyDamage(float damage)
+	public bool ApplyDamage(float damage)
 	{
 		if (Health > 0) {
 			Health -=damage;
@@ -26,10 +27,12 @@ public class HealthController : MonoBehaviour {
 
 			if(Health <= 0){
 				StartCoroutine(Die());
-
+                return true;
 
 			}
+            return false;
 		}
+        return true;
 	}
     public IEnumerator Colorize() {
         yield return new WaitForSeconds (0.3f);
@@ -39,7 +42,7 @@ public class HealthController : MonoBehaviour {
 
 
 	IEnumerator Die(){
-		GetComponent<Animator>().Play("Die");
+		animator.SetInteger("AnimSate",4);
 		yield return new WaitForSeconds(3);
 		Destroy(gameObject);
 	}

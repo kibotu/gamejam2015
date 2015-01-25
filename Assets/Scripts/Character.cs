@@ -13,8 +13,10 @@ public class Character : MonoBehaviour
     public AttackController attackCtrl;
 
     public Animator animator;
+    private PlayerStats playerStats;
     void Start()
     {
+        playerStats = GetComponent<PlayerStats>();
         if (input != null){
             input.OnKeydown += OnKeydown;
             input.Attack += Attack;
@@ -40,48 +42,48 @@ public class Character : MonoBehaviour
 
     void North()
     {
-        animator.SetInteger("AnimState",1);
+        animator.Play("char_run");
         transform.Translate(0, speed * Time.deltaTime, 0);
     }
 	void NorthEast(){
-        animator.SetInteger("AnimState",1);
+        animator.Play("char_run");
 		if(!facingRight)
 			Flip();
 		transform.Translate(speed * Time.deltaTime / DiagonalSpeed, speed * Time.deltaTime / DiagonalSpeed, 0); 
 	}
 	void East()
 	{
-        animator.SetInteger("AnimState",1);
+        animator.Play("char_run");
 		if(facingRight)
 			Flip();
 		transform.Translate(-speed * Time.deltaTime, 0, 0);
 	}
 	void SouthEast(){
-        animator.SetInteger("AnimState",1);
+        animator.Play("char_run");
 		if(!facingRight)
 			Flip();
 		transform.Translate(speed * Time.deltaTime / DiagonalSpeed, -speed * Time.deltaTime / DiagonalSpeed, 0); 
 	}
     void South()
     {
-        animator.SetInteger("AnimState",1);
+        animator.Play("char_run");
         transform.Translate(0, -speed * Time.deltaTime, 0);
     }
 	void SouthWest(){
-        animator.SetInteger("AnimState",1);
+        animator.Play("char_run");
 		if(facingRight)
 			Flip();
 		transform.Translate(-speed * Time.deltaTime / DiagonalSpeed, -speed * Time.deltaTime / DiagonalSpeed, 0);
 	}
     void West()
     {
-        animator.SetInteger("AnimState",1);
+        animator.Play("char_run");
 		if(!facingRight)
 			Flip();
         transform.Translate(speed * Time.deltaTime, 0, 0);
     }
 	void NorthWest(){
-        animator.SetInteger("AnimState",1);
+        animator.Play("char_run");
 		if(facingRight)
 			Flip();
 		transform.Translate(-speed * Time.deltaTime / DiagonalSpeed, speed * Time.deltaTime / DiagonalSpeed, 0);
@@ -102,11 +104,12 @@ public class Character : MonoBehaviour
 
     public void AttackEnemy(Character enemy)
     {
-        enemy.Defend(attackCtrl);
+        if (enemy.Defend(attackCtrl))
+            playerStats.kills +=1;
     }
 
-    void Defend(AttackController attackCtrl)
+    bool Defend(AttackController attackCtrl)
     {
-        GetComponent<HealthController>().ApplyDamage(attackCtrl.Damage);
+       return GetComponent<HealthController>().ApplyDamage(attackCtrl.Damage);
     }
 }
