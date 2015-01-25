@@ -34,5 +34,6 @@ public class Sounds : MonoBehaviour {
     public GameObject TrollGroan;
 	public GameObject TrollDie;
 	public GameObject TrollLaugh;
-	public GameObject Win;
+    public GameObject Win;
+    public GameObject Drug;
 }

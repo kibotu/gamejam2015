@@ -4,7 +4,7 @@ using System.Collections;
 public class ObstacleTrigger : MonoBehaviour {
 
 
-
+    public AudioSource src;
     public float slow = 5;
 
     public float drugTime = 10;
@@ -155,7 +155,8 @@ public class ObstacleTrigger : MonoBehaviour {
 
     IEnumerator Trip()
     {
-        var attackSound = Sounds.Shared.AttackMiss.Instantiate().GetComponent<AudioSource>();
+        src.Stop();
+        var attackSound = Sounds.Shared.Drug.Instantiate().GetComponent<AudioSource>();
         attackSound.Play(); 
         GetComponent<SpriteRenderer>().enabled = false;
         GetComponent<BoxCollider2D>().enabled = false;
@@ -176,6 +177,7 @@ public class ObstacleTrigger : MonoBehaviour {
             
         }
         attackSound.Stop();
+        src.Play();
         Destroy(gameObject);
     }
 

@@ -27,7 +27,9 @@ namespace watdowedonow
         void Start()
         {
             network.OnBytesReceived += OnBytesReceived;
-            Sounds.Shared.KickSomeAssBG.Instantiate().GetComponent<AudioSource>().Play();
+            var sound = Sounds.Shared.KickSomeAssBG.Instantiate().GetComponent<AudioSource>();
+            sound.Play();
+            GameObject.Find("Drug").GetComponent<ObstacleTrigger>().src = sound;
         }
 
         void OnBytesReceived(int id, string name, byte action)
