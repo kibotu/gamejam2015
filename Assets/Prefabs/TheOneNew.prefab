@@ -467,7 +467,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 9522260}
-  Damage: 1
+  Damage: 10
   polygonCollider: {fileID: 6022258}
   trailrenderer: {fileID: 0}
 --- !u!114 &11422244
@@ -705,7 +705,7 @@ SpriteRenderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_SortingLayerID: 3282402561
+  m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 23fdc5ec205ff304a88f4f4c4f96a6b9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

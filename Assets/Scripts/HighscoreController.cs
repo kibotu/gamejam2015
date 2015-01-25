@@ -23,6 +23,7 @@ public class HighscoreController : MonoBehaviour {
 
 
 	public void UpdateInterface(List<int> sortedKeys, Dictionary<int,GameObject> players) {
+        GameObject.Find("CameraPlane").SetActive(false);
 		sortedKeys.Reverse ();
 
 		if (sortedKeys.Count > 0)

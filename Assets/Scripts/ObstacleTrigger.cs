@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using watdowedonow;
 
 public class ObstacleTrigger : MonoBehaviour {
 
@@ -19,6 +20,9 @@ public class ObstacleTrigger : MonoBehaviour {
     public GameMode gameMode;
    
     void Start(){
+
+        src = GameObject.Find("Game").GetComponent<Game>().bgsound;
+
         switch (thisObstacle)
         {
             case Obstacle.red:

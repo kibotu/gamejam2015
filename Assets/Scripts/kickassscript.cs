@@ -7,13 +7,19 @@ public class kickassscript : MonoBehaviour
     public Image KickassImage;
     public Image WhatDowWeDoNowImage;
 
+    public AudioSource a;
+    public AudioSource b;
+
 	void Start () {
+
+        a = GameObject.Find("abc").GetComponent<AudioSource>();
+        b = GameObject.Find("cde").GetComponent<AudioSource>();
         StartCoroutine(CrossFade(KickassImage,WhatDowWeDoNowImage ,1f, 0));
 	}
 
     private IEnumerator CrossFade(Image KickassImage, Image WhatDowWeDoNowImage, float fadeFor, float delayFor)
     {
-        Sounds.Shared.wadowedonow.GetComponent<AudioSource>().Play();
+        a.Play();
 
         float time = 0;
         while (time <= fadeFor)
@@ -29,7 +35,7 @@ public class kickassscript : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
 
-        Sounds.Shared.KickSomeAss.GetComponent<AudioSource>().Play();
+    
 
         time = 0;
         while (time <= fadeFor)
@@ -45,7 +51,7 @@ public class kickassscript : MonoBehaviour
 
 
         Vector3 scale = KickassImage.rectTransform.localScale;
-
+        b.Play();
         time = 0;
         while (time <= fadeFor)
         {
@@ -54,9 +60,9 @@ public class kickassscript : MonoBehaviour
 
             // fade in
             KickassImage.rectTransform.localScale = new Vector3(
-                Mathf.Lerp(scale.x, .58f, Easing.Ease(Easing.Type.SinusoidalEaseIn, time)),
-                Mathf.Lerp(scale.y, .58f, Easing.Ease(Easing.Type.SinusoidalEaseIn, time)),
-                Mathf.Lerp(scale.z,.58f, Easing.Ease(Easing.Type.SinusoidalEaseIn, time))
+                Mathf.Lerp(scale.x, .58f, Easing.Ease(Easing.Type.BounceEaseInOut, time)),
+                Mathf.Lerp(scale.y, .58f, Easing.Ease(Easing.Type.BounceEaseInOut, time)),
+                Mathf.Lerp(scale.z,.58f, Easing.Ease(Easing.Type.BounceEaseInOut, time))
             );
         }
 

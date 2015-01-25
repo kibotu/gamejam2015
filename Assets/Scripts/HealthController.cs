@@ -54,6 +54,7 @@ public class HealthController : MonoBehaviour {
 	IEnumerator Die(){
         cam.GetComponent<CameraController>().DoShake();
         drugCam.GetComponent<CameraController>().DoShake();
+
 		var dieSound = Sounds.Shared.TrollDie.Instantiate().GetComponent<AudioSource>();
 		dieSound.Play();
 		animator.Play("char_die");

@@ -18,6 +18,7 @@ namespace watdowedonow
         public GameObject drug;
 
 		public GameObject HighscoreGroup;
+        public AudioSource bgsound;
 
         void Awake()
         {
@@ -28,9 +29,8 @@ namespace watdowedonow
         void Start()
         {
             network.OnBytesReceived += OnBytesReceived;
-            var sound = Sounds.Shared.KickSomeAssBG.Instantiate().GetComponent<AudioSource>();
-            sound.Play();
-            drug.GetComponent<ObstacleTrigger>().src = sound;
+            bgsound = Sounds.Shared.KickSomeAssBG.Instantiate().GetComponent<AudioSource>();
+            bgsound.Play();
             
             Prefabs.Shared.Splash.Instantiate();
         }
