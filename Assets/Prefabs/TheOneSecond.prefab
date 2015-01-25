@@ -594,7 +594,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 9523190}
   Damage: 10
-  collider: {fileID: 6018576}
+  polygonCollider: {fileID: 6018576}
   trailrenderer: {fileID: 0}
 --- !u!114 &11423188
 MonoBehaviour:
