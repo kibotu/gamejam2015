@@ -33,5 +33,6 @@ public class Sounds : MonoBehaviour {
     public GameObject StartButton;
     public GameObject TrollGroan;
 	public GameObject TrollDie;
+	public GameObject TrollLaugh;
 	public GameObject Win;
 }
