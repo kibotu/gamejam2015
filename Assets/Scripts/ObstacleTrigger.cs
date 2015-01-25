@@ -99,6 +99,9 @@ public class ObstacleTrigger : MonoBehaviour {
             {
 
                 case Obstacle.drug:
+					var laughSound = Sounds.Shared.TrollLaugh.Instantiate().GetComponent<AudioSource>();
+					laughSound.pitch = 0.8f;
+					laughSound.Play();
                     StartCoroutine(Trip());
                     break;
                 case Obstacle.red:
