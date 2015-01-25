@@ -7,8 +7,8 @@ public class Character : MonoBehaviour
     public int id;
 
 	public GameObject CharacterSprite;
-
-	private bool facingRight = true;
+    public bool dontInvert = true;
+	public bool facingRight = true;
 
     public AttackController attackCtrl;
 
@@ -47,50 +47,50 @@ public class Character : MonoBehaviour
     void North()
     {
         animator.Play("char_run");
-        transform.Translate(0, speed * Time.deltaTime, 0);
+        transform.Translate(0, dontInvert ?  speed * Time.deltaTime :  -speed * Time.deltaTime, 0);
     }
 	void NorthEast(){
         animator.Play("char_run");
 		if(!facingRight)
 			Flip();
-		transform.Translate(speed * Time.deltaTime / DiagonalSpeed, speed * Time.deltaTime / DiagonalSpeed, 0); 
+        transform.Translate(dontInvert ? speed * Time.deltaTime / DiagonalSpeed : -speed * Time.deltaTime / DiagonalSpeed, speed * Time.deltaTime / DiagonalSpeed, 0); 
 	}
 	void East()
 	{
         animator.Play("char_run");
 		if(facingRight)
 			Flip();
-		transform.Translate(-speed * Time.deltaTime, 0, 0);
+        transform.Translate(dontInvert ? -speed * Time.deltaTime :speed * Time.deltaTime , 0, 0);
 	}
 	void SouthEast(){
         animator.Play("char_run");
 		if(!facingRight)
 			Flip();
-		transform.Translate(speed * Time.deltaTime / DiagonalSpeed, -speed * Time.deltaTime / DiagonalSpeed, 0); 
+        transform.Translate(dontInvert ? speed * Time.deltaTime / DiagonalSpeed:-speed * Time.deltaTime / DiagonalSpeed , -speed * Time.deltaTime / DiagonalSpeed, 0); 
 	}
     void South()
     {
         animator.Play("char_run");
-        transform.Translate(0, -speed * Time.deltaTime, 0);
+        transform.Translate(0, dontInvert ? -speed * Time.deltaTime :speed * Time.deltaTime , 0);
     }
 	void SouthWest(){
         animator.Play("char_run");
 		if(facingRight)
 			Flip();
-		transform.Translate(-speed * Time.deltaTime / DiagonalSpeed, -speed * Time.deltaTime / DiagonalSpeed, 0);
+        transform.Translate(dontInvert ? -speed * Time.deltaTime / DiagonalSpeed : speed * Time.deltaTime / DiagonalSpeed, -speed * Time.deltaTime / DiagonalSpeed, 0);
 	}
     void West()
     {
         animator.Play("char_run");
 		if(!facingRight)
 			Flip();
-        transform.Translate(speed * Time.deltaTime, 0, 0);
+        transform.Translate(dontInvert ? speed * Time.deltaTime : -speed * Time.deltaTime , 0, 0);
     }
 	void NorthWest(){
         animator.Play("char_run");
 		if(facingRight)
 			Flip();
-		transform.Translate(-speed * Time.deltaTime / DiagonalSpeed, speed * Time.deltaTime / DiagonalSpeed, 0);
+        transform.Translate(dontInvert ? -speed * Time.deltaTime / DiagonalSpeed : speed * Time.deltaTime / DiagonalSpeed, speed * Time.deltaTime / DiagonalSpeed, 0);
 	}
 	void Flip()
 	{
