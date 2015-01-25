@@ -367,6 +367,19 @@ Prefab:
       propertyPath: m_Name
       value: TheOneNew
       objectReference: {fileID: 0}
+    - target: {fileID: 9527500, guid: c65d75c854c0d45faac544f33525180d, type: 2}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 81641c7086c31a241a25021bb741ec92, type: 2}
+    - target: {fileID: 11427500, guid: c65d75c854c0d45faac544f33525180d, type: 2}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1688537502}
+    - target: {fileID: 21227500, guid: c65d75c854c0d45faac544f33525180d, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 23fdc5ec205ff304a88f4f4c4f96a6b9,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c65d75c854c0d45faac544f33525180d, type: 2}
   m_RootGameObject: {fileID: 1264005881}
@@ -2033,6 +2046,7 @@ MonoBehaviour:
   id: 0
   CharacterSprite: {fileID: 1688537497}
   attackCtrl: {fileID: 0}
+  animator: {fileID: 1688537502}
 --- !u!50 &1264005884
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -2545,7 +2559,7 @@ Animator:
   m_GameObject: {fileID: 1688537497}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 142fd970793cdee49abdae03f2f9a917, type: 2}
+  m_Controller: {fileID: 9100000, guid: 81641c7086c31a241a25021bb741ec92, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -2572,7 +2586,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3b432977fed13e147bd4f9eeb7789650, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 23fdc5ec205ff304a88f4f4c4f96a6b9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1747003208
 GameObject:
