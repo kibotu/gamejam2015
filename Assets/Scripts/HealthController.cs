@@ -54,6 +54,7 @@ public class HealthController : MonoBehaviour {
 
 	IEnumerator Die(){
 		animator.Play("char_die");
+        GetComponent<Character>().move = false;
         playerCollider.enabled = false;
 		yield return new WaitForSeconds(dieTime);
 		//Destroy(gameObject);
@@ -70,6 +71,7 @@ public class HealthController : MonoBehaviour {
         spriteRenderer.enabled = true;
         animator.Play("char_idle");
         playerCollider.enabled = true;
+        GetComponent<Character>().move = true;
 
 
     }

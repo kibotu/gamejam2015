@@ -14,7 +14,7 @@ public class Character : MonoBehaviour
 
     public Animator animator;
     private PlayerStats playerStats;
-   
+    public bool move = true;
 
     public float normalSpeed;
     void Start()
@@ -31,6 +31,8 @@ public class Character : MonoBehaviour
 
     public void OnKeydown(Direction dir)
     {
+        if(!move)
+            return;
         switch (dir)
         {
             case Direction.NORTH: North(); break;
