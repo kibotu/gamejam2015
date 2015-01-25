@@ -31,6 +31,8 @@ namespace watdowedonow
             var sound = Sounds.Shared.KickSomeAssBG.Instantiate().GetComponent<AudioSource>();
             sound.Play();
             drug.GetComponent<ObstacleTrigger>().src = sound;
+            
+            Prefabs.Shared.Splash.Instantiate();
         }
 
         void OnBytesReceived(int id, string name, byte action)

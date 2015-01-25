@@ -26,4 +26,5 @@ public class Prefabs : MonoBehaviour
     #endregion
 
     public GameObject Character;
+    public GameObject Splash;
 }
