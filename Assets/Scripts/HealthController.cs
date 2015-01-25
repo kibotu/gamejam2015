@@ -59,7 +59,8 @@ public class HealthController : MonoBehaviour {
         cam.GetComponent<CameraController>().DoShake();
         drugCam.GetComponent<CameraController>().DoShake();
 		animator.Play("char_die");
-        GetComponent<Character>().move = false;
+		GetComponent<Character>().move = false;
+		GetComponent<Character> ().playerStats.Deaths++;
         playerCollider.enabled = false;
 		yield return new WaitForSeconds(dieTime);
 		//Destroy(gameObject);
