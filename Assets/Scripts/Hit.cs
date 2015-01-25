@@ -12,7 +12,7 @@ public class Hit : MonoBehaviour {
             if (coll.gameObject.tag.Equals ("Player")) {
                 Debug.Log ("hits " + col.collider.gameObject.name);
                 var enemy = coll.transform.gameObject.GetComponent<Character>();
-                var player = gameObject.transform.parent.parent.gameObject.GetComponent<Character>();
+                var player = gameObject.transform.parent.parent.parent.gameObject.GetComponent<Character>();
                 player.AttackEnemy(enemy);
             }
 
