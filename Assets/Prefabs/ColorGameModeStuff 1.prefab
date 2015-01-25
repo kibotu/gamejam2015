@@ -281,7 +281,7 @@ MonoBehaviour:
   colorTicks: 2
   getKarma: 1
   thisObstacle: 2
-  camera: {fileID: 0}
+  camera2: {fileID: 0}
   drugCamera: {fileID: 0}
   gameMode: {fileID: 0}
 --- !u!114 &11412618
@@ -300,7 +300,7 @@ MonoBehaviour:
   colorTicks: 2
   getKarma: 1
   thisObstacle: 4
-  camera: {fileID: 0}
+  camera2: {fileID: 0}
   drugCamera: {fileID: 0}
   gameMode: {fileID: 0}
 --- !u!114 &11412620
@@ -319,7 +319,7 @@ MonoBehaviour:
   colorTicks: 2
   getKarma: 1
   thisObstacle: 3
-  camera: {fileID: 0}
+  camera2: {fileID: 0}
   drugCamera: {fileID: 0}
   gameMode: {fileID: 0}
 --- !u!212 &21212616
