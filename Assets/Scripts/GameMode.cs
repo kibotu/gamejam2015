@@ -28,7 +28,8 @@ public class GameMode : MonoBehaviour {
 
                 foreach (GameObject player in players)
                 {
-                    playerStats.Add(player.GetComponent<PlayerStats>().Kills,player);
+                     if(!playerStats.ContainsKey(player.GetComponent<PlayerStats>().Kills))
+                         playerStats.Add(player.GetComponent<PlayerStats>().Kills,player);
                 }
                 List<int> keyList = playerStats.Keys.ToList();
                 keyList.Sort();
