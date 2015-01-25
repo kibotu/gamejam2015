@@ -30,7 +30,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 423182}
   - 114: {fileID: 11423178}
-  - 60: {fileID: 6023190}
+  - 60: {fileID: 6018576}
   m_Layer: 0
   m_Name: Weapon
   m_TagString: Untagged
@@ -204,6 +204,22 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
+--- !u!60 &6018576
+PolygonCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 123178}
+  m_Enabled: 0
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Poly:
+    m_Paths:
+    - - {x: -.210478306, y: .85205394}
+      - {x: .655346394, y: 1.76596653}
+      - {x: -.167733312, y: -1.21880257}
+      - {x: -1.20822883, y: -1.00844514}
+      - {x: -.485542536, y: .0245367736}
 --- !u!60 &6023188
 PolygonCollider2D:
   m_ObjectHideFlags: 1
@@ -381,22 +397,6 @@ PolygonCollider2D:
       - {x: -.920000017, y: .140000001}
       - {x: -.910000026, y: .100000001}
       - {x: -.899999976, y: .109999999}
---- !u!60 &6023190
-PolygonCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 123178}
-  m_Enabled: 0
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Poly:
-    m_Paths:
-    - - {x: .0775852203, y: .431039095}
-      - {x: .278648615, y: .347809225}
-      - {x: -.123415709, y: -.421088994}
-      - {x: -.587785363, y: -.809016943}
-      - {x: -.485542536, y: .0245367736}
 --- !u!61 &6123190
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -574,7 +574,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 9523190}
   Damage: 10
-  collider: {fileID: 6023190}
+  collider: {fileID: 0}
   trailrenderer: {fileID: 0}
 --- !u!114 &11423188
 MonoBehaviour:

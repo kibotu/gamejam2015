@@ -61,7 +61,8 @@ public class HealthController : MonoBehaviour {
 		var dieSound = Sounds.Shared.TrollDie.Instantiate().GetComponent<AudioSource>();
 		dieSound.Play();
 		animator.Play("char_die");
-        GetComponent<Character>().move = false;
+		GetComponent<Character>().move = false;
+		GetComponent<Character> ().playerStats.Deaths++;
         playerCollider.enabled = false;
 		yield return new WaitForSeconds(dieTime);
 		//Destroy(gameObject);
