@@ -67,6 +67,7 @@ GameObject:
   - 60: {fileID: 6013518}
   - 114: {fileID: 11478880}
   - 114: {fileID: 11405306}
+  - 114: {fileID: 11457900}
   m_Layer: 0
   m_Name: CharacterWrapper
   m_TagString: Player
@@ -433,7 +434,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 197820}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Size: {x: 1, y: .252910018}
   m_Center: {x: 0, y: -.411857367}
 --- !u!95 &9527500
@@ -505,6 +506,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   kills: 0
   deaths: 0
+  karma: 0
 --- !u!114 &11413518
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -534,8 +536,12 @@ MonoBehaviour:
   speed: 15
   id: 0
   CharacterSprite: {fileID: 127504}
+  dontInvert: 1
+  facingRight: 1
   attackCtrl: {fileID: 11478884}
   animator: {fileID: 9527500}
+  move: 1
+  normalSpeed: 0
 --- !u!114 &11427502
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -599,6 +605,20 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!114 &11457900
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 127506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e520cbdf493054d1888db6d170187dea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HealthPercentage: 0
+  Fill: {fileID: 0}
+  Container: {fileID: 0}
 --- !u!114 &11478878
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -633,6 +653,8 @@ MonoBehaviour:
   spriteRenderer: {fileID: 21227500}
   playerCollider: {fileID: 6013518}
   levelBounds: {fileID: 0}
+  cam: {fileID: 0}
+  drugCam: {fileID: 0}
 --- !u!114 &11478882
 MonoBehaviour:
   m_ObjectHideFlags: 1

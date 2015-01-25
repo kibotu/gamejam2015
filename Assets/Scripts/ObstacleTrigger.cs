@@ -123,7 +123,7 @@ public class ObstacleTrigger : MonoBehaviour {
         }
     }
     void RandomEffect(Transform player){
-        int index = Random.Range(1, 4);
+        int index = Random.Range(1, 5);
         switch(index){
             case 1 :
                 player.GetComponent<HealthController>().ApplyDamage(9999999999999999999);
@@ -134,6 +134,9 @@ public class ObstacleTrigger : MonoBehaviour {
                 break;
             case 3 :
                 player.GetComponent<Character>().speed = slow * 3;
+                break;
+            case 4 :
+                player.GetComponent<Character>().dontInvert = true;
                 break;
         }
     }

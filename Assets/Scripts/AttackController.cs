@@ -9,7 +9,7 @@ public class AttackController : MonoBehaviour {
     public PolygonCollider2D collider;
     public TrailRenderer trailrenderer;
     public void Attack(){
-        print("char_attack");
+
         animator.Play("char_attack");
     }
     void Update(){

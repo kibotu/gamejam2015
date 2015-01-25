@@ -15,6 +15,8 @@ public class HealthController : MonoBehaviour {
     public BoxCollider2D levelBounds;
     private Vector2 min;
     private Vector2 max;
+    public GameObject cam;
+    public GameObject drugCam;
 	public void start(){
         min = levelBounds.bounds.min;
         max = levelBounds.bounds.max;
@@ -53,6 +55,8 @@ public class HealthController : MonoBehaviour {
 
 
 	IEnumerator Die(){
+        cam.GetComponent<CameraController>().DoShake();
+        drugCam.GetComponent<CameraController>().DoShake();
 		animator.Play("char_die");
         GetComponent<Character>().move = false;
         playerCollider.enabled = false;
