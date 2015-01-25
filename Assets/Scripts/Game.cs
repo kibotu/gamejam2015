@@ -16,6 +16,8 @@ namespace watdowedonow
 		public Text TimeLeftText;
         public bool showResult = true;
 
+		public GameObject HighscoreGroup;
+
         void Awake()
         {
             gameMode = GetComponent<GameMode>();
