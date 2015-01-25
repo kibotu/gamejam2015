@@ -8,7 +8,6 @@ public class HealthController : MonoBehaviour {
 	public float Health;
 	public float MaxHealth = 10;
 	public Animation dieAnimation;
-    private Color startColor;
     public Animator animator;
     public SpriteRenderer spriteRenderer;
     public Collider2D playerCollider;
@@ -22,8 +21,6 @@ public class HealthController : MonoBehaviour {
         max = levelBounds.bounds.max;
 
 		Health = MaxHealth;
-        startColor = spriteRenderer.color;
-
 	}
 
 	public bool ApplyDamage(float damage)
@@ -32,12 +29,11 @@ public class HealthController : MonoBehaviour {
 			Health -=damage;
 
 
-            /* BleedingStuff
+            // BleedingStuff
             spriteRenderer.color = Color.red;
             Debug.Log (gameObject.name + " red");
             StopCoroutine ("Colorize");
             StartCoroutine ("Colorize");
-            */
 
 			if(Health <= 0){
 				StartCoroutine(Die());
@@ -48,12 +44,12 @@ public class HealthController : MonoBehaviour {
 		}
         return true;
 	}
+
     public IEnumerator Colorize() {
         yield return new WaitForSeconds (0.3f);
         Debug.Log (gameObject.name + " reset color");
-        spriteRenderer.color = startColor;
+        spriteRenderer.color = Color.white;
     }
-
 
 	IEnumerator Die(){
         cam.GetComponent<CameraController>().DoShake();
