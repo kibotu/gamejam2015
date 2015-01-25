@@ -51,7 +51,8 @@ public class Character : MonoBehaviour
             case Direction.SOUTH: South(); break;
 			case Direction.SOUTH_WEST: SouthWest(); break; 
 			case Direction.WEST: East(); break;
-			case Direction.NORTH_WEST: NorthWest();break;
+            case Direction.NORTH_WEST: NorthWest(); break;
+            case Direction.Attack: Attack(); break;
         }
     }
 
