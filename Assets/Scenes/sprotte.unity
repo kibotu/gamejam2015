@@ -213,7 +213,7 @@ MonoBehaviour:
   colorTicks: 2
   getKarma: 1
   thisObstacle: 4
-  camera: {fileID: 0}
+  camera2: {fileID: 0}
   drugCamera: {fileID: 0}
   gameMode: {fileID: 134923784}
 --- !u!61 &127027636
@@ -988,7 +988,6 @@ GameObject:
   - 20: {fileID: 497875577}
   - 92: {fileID: 497875576}
   - 124: {fileID: 497875575}
-  - 81: {fileID: 497875574}
   - 114: {fileID: 497875573}
   - 114: {fileID: 497875572}
   - 114: {fileID: 497875571}
@@ -1078,14 +1077,6 @@ MonoBehaviour:
   path: {fileID: 559788896}
   speed: 1
   test: 0
---- !u!81 &497875574
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 8118386, guid: ac62ecab50c78470a92d22e6be7367dd,
-    type: 2}
-  m_PrefabInternal: {fileID: 987048985}
-  m_GameObject: {fileID: 497875569}
-  m_Enabled: 1
 --- !u!124 &497875575
 Behaviour:
   m_ObjectHideFlags: 0
@@ -1679,7 +1670,9 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8118384, guid: ac62ecab50c78470a92d22e6be7367dd, type: 2}
+    - {fileID: 8118386, guid: ac62ecab50c78470a92d22e6be7367dd, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: ac62ecab50c78470a92d22e6be7367dd, type: 2}
   m_RootGameObject: {fileID: 643115593}
   m_IsPrefabParent: 0
@@ -3169,7 +3162,7 @@ MonoBehaviour:
   colorTicks: 2
   getKarma: 1
   thisObstacle: 2
-  camera: {fileID: 0}
+  camera2: {fileID: 0}
   drugCamera: {fileID: 0}
   gameMode: {fileID: 134923784}
 --- !u!61 &1212699226
@@ -4000,7 +3993,7 @@ MonoBehaviour:
   colorTicks: 2
   getKarma: 1
   thisObstacle: 1
-  camera: {fileID: 47591264}
+  camera2: {fileID: 0}
   drugCamera: {fileID: 2088707441}
   gameMode: {fileID: 0}
 --- !u!61 &1360137041
@@ -4130,6 +4123,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5adcd3cd08a6401cb35e7d8cf096805, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1458204118
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1458204120}
+  - 81: {fileID: 1458204119}
+  m_Layer: 0
+  m_Name: audiolistener
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!81 &1458204119
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1458204118}
+  m_Enabled: 1
+--- !u!4 &1458204120
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1458204118}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 17
 --- !u!1001 &1520195528
 Prefab:
   m_ObjectHideFlags: 0
@@ -4459,7 +4487,7 @@ MonoBehaviour:
   colorTicks: 2
   getKarma: 1
   thisObstacle: 3
-  camera: {fileID: 0}
+  camera2: {fileID: 0}
   drugCamera: {fileID: 0}
   gameMode: {fileID: 134923784}
 --- !u!61 &1623330937
@@ -4883,7 +4911,7 @@ MonoBehaviour:
   colorTicks: 2
   getKarma: 1
   thisObstacle: 0
-  camera: {fileID: 0}
+  camera2: {fileID: 0}
   drugCamera: {fileID: 0}
   gameMode: {fileID: 0}
 --- !u!1 &1747003208
@@ -5006,7 +5034,6 @@ GameObject:
   - 20: {fileID: 1819641333}
   - 92: {fileID: 1819641332}
   - 124: {fileID: 1819641331}
-  - 81: {fileID: 1819641330}
   - 114: {fileID: 1819641335}
   - 114: {fileID: 1819641339}
   - 114: {fileID: 1819641338}
@@ -5019,14 +5046,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &1819641330
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 8118384, guid: ac62ecab50c78470a92d22e6be7367dd,
-    type: 2}
-  m_PrefabInternal: {fileID: 987048985}
-  m_GameObject: {fileID: 1819641329}
-  m_Enabled: 1
 --- !u!124 &1819641331
 Behaviour:
   m_ObjectHideFlags: 0
