@@ -70,12 +70,13 @@ namespace watdowedonow
 			if (SECONDS_LEFT <= 0.3f) {
 
                 if(showResult){
-                    showResult = false;
+					showResult = false;
                     gameMode.GiveWinner();
 					var winSound = Sounds.Shared.Win.Instantiate().GetComponent<AudioSource>();
 					winSound.Play();
                 }
-
+			} else {
+				showResult = true;
 			}
         }
     }
