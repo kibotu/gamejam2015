@@ -13,6 +13,9 @@ public class Menu : MonoBehaviour
 
 	void Start ()
 	{
+	    var bg = Sounds.Shared.KickSomeAssBG.Instantiate().GetComponent<AudioSource>();
+	    bg.pitch = 0.6f;
+        bg.Play();
 	    StartCoroutine(CrossFade(TeamImage, LogoImage, FadeTime, Delay));
 	}
 
