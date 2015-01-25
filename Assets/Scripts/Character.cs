@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class Character : MonoBehaviour
 {
@@ -13,10 +14,14 @@ public class Character : MonoBehaviour
     public AttackController attackCtrl;
 
     public Animator animator;
-    private PlayerStats playerStats;
+    public PlayerStats playerStats;
     public bool move = true;
 
     public float normalSpeed;
+
+	public Text PlayerNameText;
+	public Text PlayerScoreText;
+
     void Start()
     {
         normalSpeed = speed;
@@ -25,6 +30,10 @@ public class Character : MonoBehaviour
             input.OnKeydown += OnKeydown;
             input.Attack += Attack;
         }
+
+		playerStats.OnStatsUpdated += () => {
+			PlayerScoreText.text = playerStats.Kills + "/" + playerStats.Deaths;
+		};
     }
 
     public static float DiagonalSpeed = Mathf.Sqrt(2);
@@ -106,12 +115,16 @@ public class Character : MonoBehaviour
     {
         animator.SetInteger("AnimState",2);
         if(attackCtrl != null) attackCtrl.Attack();
+		var attackSound = Sounds.Shared.AttackMiss.Instantiate().GetComponent<AudioSource>();
+		attackSound.Play();		
     }
 
     public void AttackEnemy(Character enemy)
     {
+		var attackSound = Sounds.Shared.AttackHit.Instantiate().GetComponent<AudioSource>();
+		attackSound.Play();		
         if (enemy.Defend(attackCtrl))
-            playerStats.kills +=1;
+            playerStats.Kills++;
     }
 
     bool Defend(AttackController attackCtrl)
