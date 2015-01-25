@@ -467,7 +467,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 9522260}
-  Damage: 10
+  Damage: 1
   polygonCollider: {fileID: 6022258}
   trailrenderer: {fileID: 0}
 --- !u!114 &11422244
@@ -509,8 +509,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnTime: 5
   dieTime: 3
-  Health: 100
-  MaxHealth: 100
+  Health: 2
+  MaxHealth: 2
   dieAnimation: {fileID: 0}
   animator: {fileID: 9522260}
   spriteRenderer: {fileID: 21222260}
@@ -530,7 +530,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   input: {fileID: 0}
-  speed: 15
+  speed: 20
   id: 0
   CharacterSprite: {fileID: 122250}
   dontInvert: 1

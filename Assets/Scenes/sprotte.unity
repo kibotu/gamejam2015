@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   network: {fileID: 1768721130}
-  SECONDS_LEFT: 10
+  SECONDS_LEFT: 30
   TimeLeftText: {fileID: 1585427036}
   showResult: 1
   HighscoreGroup: {fileID: 1758149828}
@@ -223,7 +223,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22441508, guid: 2c48c92906b11c648b4a809f02e59753, type: 2}
       propertyPath: m_RootOrder
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 22441508, guid: 2c48c92906b11c648b4a809f02e59753, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -737,7 +737,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 412606, guid: f89512a9d2049407d9a90e2166ba33c9, type: 2}
       propertyPath: m_RootOrder
-      value: 15
+      value: 14
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f89512a9d2049407d9a90e2166ba33c9, type: 2}
@@ -816,7 +816,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 11
 --- !u!1 &441555440
 GameObject:
   m_ObjectHideFlags: 0
@@ -891,7 +891,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: TST 15/20
+  m_Text: 
 --- !u!222 &441555444
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1352,7 +1352,7 @@ Transform:
   - {fileID: 47591265}
   - {fileID: 2088707442}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 15
 --- !u!1 &651129341
 GameObject:
   m_ObjectHideFlags: 0
@@ -2999,7 +2999,7 @@ Transform:
   m_LocalScale: {x: 1.73000002, y: 1, z: 1.09000003}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
 --- !u!1 &1155737583
 GameObject:
   m_ObjectHideFlags: 0
@@ -3264,7 +3264,7 @@ Transform:
   m_LocalScale: {x: 18.8257465, y: 8.09709072, z: 8.09709072}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
 --- !u!1001 &1261834828
 Prefab:
   m_ObjectHideFlags: 0
@@ -3302,7 +3302,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 495966, guid: 938716ad48a9a43f7a45eec0ce05dfb9, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11495966, guid: 938716ad48a9a43f7a45eec0ce05dfb9, type: 2}
       propertyPath: network
@@ -3340,6 +3340,10 @@ Prefab:
       propertyPath: HighscoreGroup
       value: 
       objectReference: {fileID: 1758149828}
+    - target: {fileID: 11495966, guid: 938716ad48a9a43f7a45eec0ce05dfb9, type: 2}
+      propertyPath: SECONDS_LEFT
+      value: 30
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 938716ad48a9a43f7a45eec0ce05dfb9, type: 2}
   m_RootGameObject: {fileID: 134923780}
@@ -3393,7 +3397,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   input: {fileID: 1642075387}
-  speed: 15
+  speed: 20
   id: 0
   CharacterSprite: {fileID: 1688537497}
   dontInvert: 1
@@ -3613,8 +3617,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnTime: 5
   dieTime: 3
-  Health: 100
-  MaxHealth: 100
+  Health: 2
+  MaxHealth: 2
   dieAnimation: {fileID: 0}
   animator: {fileID: 1688537502}
   spriteRenderer: {fileID: 1688537503}
@@ -3792,7 +3796,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: TST 15/20
+  m_Text: 
 --- !u!222 &1277492316
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4088,7 +4092,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1688537502}
-  Damage: 10
+  Damage: 1
   polygonCollider: {fileID: 1858525325}
   trailrenderer: {fileID: 0}
 --- !u!1 &1351374590
@@ -4255,7 +4259,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
 --- !u!1001 &1520195528
 Prefab:
   m_ObjectHideFlags: 0
@@ -4293,7 +4297,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 422258, guid: 1791010045cf2488f8d47b85b006eb6d, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 11422250, guid: 1791010045cf2488f8d47b85b006eb6d, type: 2}
       propertyPath: input
@@ -4307,6 +4311,10 @@ Prefab:
       propertyPath: drugCam
       value: 
       objectReference: {fileID: 497875569}
+    - target: {fileID: 11422242, guid: 1791010045cf2488f8d47b85b006eb6d, type: 2}
+      propertyPath: Damage
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1791010045cf2488f8d47b85b006eb6d, type: 2}
   m_RootGameObject: {fileID: 1264005881}
@@ -4342,7 +4350,7 @@ Transform:
   - {fileID: 1265455164}
   - {fileID: 1719838214}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 14
 --- !u!1001 &1556258685
 Prefab:
   m_ObjectHideFlags: 0
@@ -4651,6 +4659,10 @@ Prefab:
       propertyPath: drugCam
       value: 
       objectReference: {fileID: 497875569}
+    - target: {fileID: 123176, guid: 43d7c7410c83b44c9ac10f50d3c52d55, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 43d7c7410c83b44c9ac10f50d3c52d55, type: 2}
   m_RootGameObject: {fileID: 2139894940}
@@ -4755,7 +4767,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: TST 15/20
+  m_Text: 
 --- !u!222 &1657473330
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5001,7 +5013,7 @@ Transform:
   - {fileID: 1627844916}
   - {fileID: 1211180558}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
 --- !u!114 &1758149830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6469,7 +6481,7 @@ Transform:
   m_LocalScale: {x: 1.73000002, y: 1, z: 1.09000003}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
 --- !u!1 &1937624663
 GameObject:
   m_ObjectHideFlags: 0
@@ -6544,7 +6556,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: TST 15/20
+  m_Text: 
 --- !u!222 &1937624667
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6905,7 +6917,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2139894941
 Transform:
   m_ObjectHideFlags: 0
@@ -6919,7 +6931,7 @@ Transform:
   - {fileID: 530344105}
   - {fileID: 195896651}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
 --- !u!114 &2139894942
 MonoBehaviour:
   m_ObjectHideFlags: 0

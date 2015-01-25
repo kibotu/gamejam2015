@@ -6,7 +6,7 @@ public class HealthController : MonoBehaviour {
     public float dieTime = 3;
 	
 	public float Health;
-	public float MaxHealth = 10;
+	public float MaxHealth = 2;
 	public Animation dieAnimation;
     public Animator animator;
     public SpriteRenderer spriteRenderer;
@@ -71,7 +71,7 @@ public class HealthController : MonoBehaviour {
         spriteRenderer.enabled = false;
         yield return new WaitForSeconds(spawnTime);
         transform.position = new Vector2 (Random.Range(min.x, max.x),Random.Range(min.y, max.y));
-        Health = 100;
+        Health = 2;
         spriteRenderer.enabled = true;
         animator.Play("char_idle");
         playerCollider.enabled = true;
