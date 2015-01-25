@@ -15,6 +15,7 @@ namespace watdowedonow
 		public float SECONDS_LEFT;
 		public Text TimeLeftText;
         public bool showResult = true;
+        public GameObject drug;
 
 		public GameObject HighscoreGroup;
 
@@ -29,7 +30,7 @@ namespace watdowedonow
             network.OnBytesReceived += OnBytesReceived;
             var sound = Sounds.Shared.KickSomeAssBG.Instantiate().GetComponent<AudioSource>();
             sound.Play();
-            GameObject.Find("Drug").GetComponent<ObstacleTrigger>().src = sound;
+            drug.GetComponent<ObstacleTrigger>().src = sound;
         }
 
         void OnBytesReceived(int id, string name, byte action)
