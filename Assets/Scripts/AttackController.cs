@@ -15,12 +15,12 @@ public class AttackController : MonoBehaviour {
     void Update(){
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("char_attack")) {
             collider.enabled = true;
-            trailrenderer.enabled = true;
+            //trailrenderer.enabled = true;
         
         } else {
 
             collider.enabled = false;
-            trailrenderer.enabled = false;
+            //trailrenderer.enabled = false;
 
         }
     }

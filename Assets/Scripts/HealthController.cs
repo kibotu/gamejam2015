@@ -31,6 +31,7 @@ public class HealthController : MonoBehaviour {
 		if (Health > 0) {
 			Health -=damage;
 
+
             /* BleedingStuff
             spriteRenderer.color = Color.red;
             Debug.Log (gameObject.name + " red");

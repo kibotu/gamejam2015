@@ -116,6 +116,10 @@ public class Character : MonoBehaviour
 
     bool Defend(AttackController attackCtrl)
     {
+
        return GetComponent<HealthController>().ApplyDamage(attackCtrl.Damage);
+
+
+
     }
 }
