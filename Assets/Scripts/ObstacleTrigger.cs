@@ -155,6 +155,8 @@ public class ObstacleTrigger : MonoBehaviour {
 
     IEnumerator Trip()
     {
+        var attackSound = Sounds.Shared.AttackMiss.Instantiate().GetComponent<AudioSource>();
+        attackSound.Play(); 
         GetComponent<SpriteRenderer>().enabled = false;
         GetComponent<BoxCollider2D>().enabled = false;
         GameObject[] players  = GameObject.FindGameObjectsWithTag("Player");
@@ -173,6 +175,7 @@ public class ObstacleTrigger : MonoBehaviour {
             
             
         }
+        attackSound.Stop();
         Destroy(gameObject);
     }
 
