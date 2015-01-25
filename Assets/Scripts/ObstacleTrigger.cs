@@ -14,7 +14,7 @@ public class ObstacleTrigger : MonoBehaviour {
     public bool getKarma = true;
 
     public Obstacle thisObstacle = Obstacle.puddle;
-    public GameObject camera;
+    public GameObject camera2;
     public GameObject drugCamera;
     public GameMode gameMode;
    
@@ -160,9 +160,9 @@ public class ObstacleTrigger : MonoBehaviour {
             player.GetComponent<Character>().dontInvert = false;
         }
         drugCamera.SetActive(true);
-        camera.SetActive(false);
+        camera2.SetActive(false);
         yield return new WaitForSeconds(drugTime);
-        camera.SetActive(true);
+        camera2.SetActive(true);
         drugCamera.SetActive(false);
         foreach (GameObject player in players)
         {
