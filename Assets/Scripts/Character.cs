@@ -14,8 +14,12 @@ public class Character : MonoBehaviour
 
     public Animator animator;
     private PlayerStats playerStats;
+   
+
+    public float normalSpeed;
     void Start()
     {
+        normalSpeed = speed;
         playerStats = GetComponent<PlayerStats>();
         if (input != null){
             input.OnKeydown += OnKeydown;

@@ -11,12 +11,14 @@ namespace watdowedonow
         public static volatile Dictionary<int, Character> CurrentlyConnectedPlayer;
 
         public NetworkController network;
-
+        private GameMode gameMode;
 		public float SECONDS_LEFT;
 		public Text TimeLeftText;
+        public bool showResult = true;
 
         void Awake()
         {
+            gameMode = GetComponent<GameMode>();
             CurrentlyConnectedPlayer = new Dictionary<int, Character>();
         }
 
@@ -64,7 +66,12 @@ namespace watdowedonow
 			TimeLeftText.text = timeLeft.Substring(4, timeLeft.Length - 4);
 
 			if (SECONDS_LEFT <= 0.3f) {
-				// TODO: next level or result screen.
+
+                if(showResult){
+                    showResult = false;
+                    gameMode.GiveWinner();
+                }
+
 			}
         }
     }
